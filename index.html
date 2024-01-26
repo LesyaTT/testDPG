@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .flex {
+            display: flex;
+            color: #959494;
+            font-size: 8px;
+            align-items: center;
+            margin-left: 21px;
+            margin-top: 15px;
+        }
+
+        #contributionGraph {
+            display: grid;
+            grid-template-rows: repeat(8, 1fr);
+            grid-auto-flow: column;
+            justify-content: center;
+        }
+
+        #months {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1px;
+            grid-column: span 51;
+            text-align: center;
+        }
+
+        #days {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 18px;
+            margin-right: 5px;
+            align-items: center;
+        }
+
+        #months div,
+        #days div {
+            font-size: 12px;
+            color: #959494;
+        }
+
+        .contribution-cell {
+            box-sizing: border-box;
+            width: 15px;
+            height: 15px;
+            margin: 1px;
+        }
+
+        .contribution-cell:hover {
+            border: 1px solid #00000080;
+        }
+
+        .selected {
+            border: 1px solid #000000E5;
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px;
+            min-width: 100px;
+            max-height: 45px;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        .popup-arrow {
+            background-color: #000000;
+            position: relative;
+        }
+
+        .popup-contributions {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .popup-date {
+            color: #7C7C7C;
+            font-size: 10px;
+        }
+
+        .color-0 {
+            background-color: #EDEDED;
+            /* Нет контрибуций */
+        }
+
+        .color-1-9 {
+            background-color: #ACD5F2;
+            /* 1-9 контрибуций */
+        }
+
+        .color-10-19 {
+            background-color: #7FA8C9;
+            /* 10-19 контрибуций */
+        }
+
+        .color-20-29 {
+            background-color: #527BA0;
+            /* 20-29 контрибуций */
+        }
+
+        .color-30 {
+            background-color: #254E77;
+            /* 30+ контрибуций */
+        }
+    </style>
+    <title>Тестовое</title>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="main">
+            <div id="days">
+                <div>Пн</div>
+                <div>Ср</div>
+                <div>Пт</div>
+            </div>
+            <div id="contributionGraph">
+                <div id="months"></div>
+            </div>
+        </div>
+        <div class="flex">
+            Меньше
+            <div class="contribution-cell helper color-0"></div>
+            <div class="contribution-cell helper color-1-9"></div>
+            <div class="contribution-cell helper color-10-19"></div>
+            <div class="contribution-cell helper color-20-29"></div>
+            <div class="contribution-cell helper color-30"></div>
+            Больше
+        </div>
+    </div>
+</body>
+
+</html>
